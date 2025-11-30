@@ -1,0 +1,172 @@
+body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    /* CLAVE: Define el color de fondo para toda la página */
+    background-color: #0d1117; /* Un color negro/gris muy oscuro, similar al de GitHub */
+}
+
+.card {
+    width: 350px; 
+    height: 450px; 
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    /* COLOR DE FONDO: Negro/Gris muy oscuro para mayor contraste */
+    background: #1a1a2e; 
+    border-radius: 15px;
+    /* SOMBRA:  */
+    box-shadow: 0 0 70px rgba(45, 139, 151, 0.8); 
+    transition: box-shadow 0.5s ease-in-out;
+    padding-bottom: 40px;
+    /* Para que el botón quede centrado verticalmente mejor, quitaremos el padding-bottom
+       y añadiremos una separación al final del contenido: */
+    /* REMOVER: padding-bottom: 40px; */ 
+}
+
+.preload-screen {
+    /* Agregamos las propiedades de Flexbox para centrar */
+    display: flex;
+    justify-content: center; /* Centrado horizontal */
+    align-items: center; /* Centrado vertical */
+    min-height: 100vh; /* Asegura que el contenedor ocupe la altura completa del viewport */
+    width: 100%; /* Asegura que ocupe el ancho completo */
+    
+    /* Si tienes más estilos en preload-screen, mantenlos, pero agrega estos */
+}
+
+.card .card-border-top {
+    width: 60%;
+    height: 3%;
+    /* COLOR: Un azul más claro y vibrante */
+    background: #00bcd4; 
+    margin: auto;
+    border-radius: 0px 0px 15px 15px;
+}
+
+.card span {
+    /* Nueva fuente (asegúrate de que esté cargada o usa una fuente web) */
+    font-family: 'Verdana', sans-serif; /* Cambiamos a serif para darle elegancia */
+    font-weight: 700; /* Más audaz */
+    color: #f0f0f0; /* Blanco suave */
+    text-align: center;
+    display: block;
+    padding-top: 20px; /* Más espacio */
+    font-size: 25px; /* Tamaño para el nombre */
+}
+
+.card .job {
+    font-family: 'Verdana', sans-serif; /* Fuente simple y limpia para el título */
+    font-weight: 300; /* Más delgado */
+    color: #b0b0b0; /* Gris claro para el título profesional */
+    display: block;
+    text-align: center;
+    padding-top: 6px;
+    font-size: 18px;
+}
+
+.card .img {
+    /* Aumentamos la imagen para que se vea más grande en la tarjeta */
+    width: 180px; /* Aumento el tamaño de la foto (de 120px a 140px) */
+    height: 190px; 
+    /* COLOR: Similar al borde superior o blanco para contraste */
+    background: #00bcd4; 
+    border-radius: 50%; /* Sugerencia: Lo cambiamos a círculo para un look moderno */
+    margin: auto;
+    margin-top: 40px; 
+    object-fit: cover;
+    display: block;
+}
+
+
+
+button {
+    display: block;
+    width: 100%; 
+    font-size: 1.4em;
+    padding: 0.6em 1.5em; /* Aumentamos el padding horizontal para que se vea mejor */
+    border-radius: 0.5em;
+    border: none;
+    background-color: #000;
+    color: #fff;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); /* Sombra más suave y moderna */
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease; /* Transiciones para un mejor hover */
+}
+
+button:hover {
+    background-color: #333; /* Un gris más oscuro al pasar el ratón */
+    transform: translateY(-2px); /* Ligeramente elevado */
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.4); /* Sombra más prominente */
+}
+
+button:active {
+    transform: translateY(0); /* Vuelve a la posición normal al hacer click */
+    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.2); /* Sombra más pequeña */
+}
+
+button a { 
+    text-decoration: none; /* Quita el subrayado */
+    color: white ; /* Asegura el color blanco (ajusta si es necesario) */
+}
+
+.container a:hover,
+.container a:visited,
+.container a:active,
+.container a:focus {
+    text-decoration: none;
+    color: white; 
+}
+
+.container {
+    /* Centrado Horizontal en la tarjeta */
+    margin-left: auto;
+    margin-right: auto;
+    
+    /* Define un ancho fijo o máximo para centrarlo correctamente */
+    width: 80%;
+    max-width: 300px; 
+    
+    /* El centrado vertical y el margen inferior */
+    margin-top: auto;
+    margin-bottom: 20px;
+
+    /* --- [Estilos Visuales (Mantenidos)] --- */
+    position: relative;
+    padding: 2px;
+    background: linear-gradient(90deg, #03a9f4, #f441a5);
+    border-radius: 0.9em;
+    transition: all 0.4s ease;
+    
+    /* AÑADIDO: Usa Flexbox para centrar el contenido (el botón) */
+    display: flex; /* Habilita Flexbox */
+    justify-content: center; /* Centra horizontalmente el contenido dentro de .container */
+    align-items: center; /* (Opcional) Centra verticalmente si .container tiene altura definida */
+}
+
+
+.container:hover {
+    /* Mantiene el efecto original de filtro blur, pero agregamos movimiento */
+    transform: scale(1.05); /* Ligeramente más grande */
+    box-shadow: 0 0 30px rgba(3, 169, 244, 0.7); /* Sombra de color para destacar */
+}
+
+.container::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  border-radius: 0.9em;
+  z-index: -10;
+  filter: blur(0);
+  transition: filter 0.4s ease;
+}
+
+.container:hover::before {
+  background: linear-gradient(90deg, #03a9f4, #f441a5);
+  filter: blur(1.2em);
+}
+.container:active::before {
+  filter: blur(0.2em);
+}
